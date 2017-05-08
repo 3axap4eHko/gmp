@@ -1,0 +1,44 @@
+.copy-btn button {
+  transition-property: color;
+  transition-duration: 0.5s;
+}
+.copy-btn button:after {
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  font-weight: 500;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 24px;
+}
+
+.copy-btn button:before {
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  font-weight: 500;
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(139,195,74);
+  transform: scaleY(0);
+  transform-origin: 50% 0;
+  transition-property: transform;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+}
+.copied.copy-btn button:after {
+  content: ""
+}
+
+.copied.copy-btn button:before {
+  transform: scaleY(1);
+  transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}

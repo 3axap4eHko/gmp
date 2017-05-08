@@ -1,0 +1,50 @@
+{
+  "field_password_size" : {
+    "message": "Password size"
+  },
+  "field_url" : {
+    "message": "Url"
+  },
+  "field_expiration" : {
+    "message": "Expiration"
+  },
+  "field_expiration_never" : {
+    "message": "Never"
+  },
+  "field_expiration_weekly" : {
+    "message": "Weekly"
+  },
+  "field_expiration_monthly" : {
+    "message": "Monthly"
+  },
+  "field_expiration_quarterly" : {
+    "message": "Quarterly"
+  },
+  "field_expiration_yearly" : {
+    "message": "Yearly"
+  },
+  "field_username" : {
+    "message": "Username"
+  },
+  "field_pin" : {
+    "message": "PIN"
+  },
+  "field_password" : {
+    "message": "Password"
+  },
+  "field_use_geo" : {
+    "message": "Use GEO"
+  },
+  "field_search_box" : {
+    "message": "Search Box"
+  },
+  "button_copy" : {
+    "message": "Copy"
+  },
+  "button_copied" : {
+    "message": "Copied"
+  },
+  "button_donate": {
+    "message": "Donate"
+  }
+}

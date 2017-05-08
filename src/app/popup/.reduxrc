@@ -1,0 +1,14 @@
+{
+  "useCamelCasedPaths": false,
+  "actionsPath": "./redux/actions",
+  "actionTemplatePath": "./redux/templates/action.jst",
+  "actionsIndexTemplatePath": "./redux/templates/action-index.jst",
+  "reducersPath": "./redux/reducers",
+  "reducerTemplatePath": "./redux/templates/reducer.jst",
+  "reducersIndexTemplatePath": "./redux/templates/reducer-index.jst",
+  "typesPath": "./redux/types",
+  "typesTemplatePath": "./redux/templates/types.jst",
+  "statesPath": "./redux/states",
+  "stateTemplatePath": "./redux/templates/state.jst",
+  "statesIndexTemplatePath": "./redux/templates/state-index.jst"
+}
