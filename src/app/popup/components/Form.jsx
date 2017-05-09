@@ -152,11 +152,11 @@ class Form extends Component {
           onChange={this.onExpirationChange}
           fullWidth={true}
         >
-          <MenuItem value={0} primaryText={$i('field_expiration_never')} />
-          <MenuItem value={1} primaryText={$i('field_expiration_weekly')} />
-          <MenuItem value={2} primaryText={$i('field_expiration_monthly')} />
-          <MenuItem value={3} primaryText={$i('field_expiration_quarterly')} />
-          <MenuItem value={4} primaryText={$i('field_expiration_yearly')} />
+          <MenuItem value={1} primaryText={$i('field_expiration_never')} />
+          <MenuItem value={2} primaryText={$i('field_expiration_hourly')} />
+          <MenuItem value={3} primaryText={$i('field_expiration_daily')} />
+          <MenuItem value={4} primaryText={$i('field_expiration_monthly')} />
+          <MenuItem value={5} primaryText={$i('field_expiration_yearly')} />
         </SelectField>
         <TextField
           floatingLabelText={$i('field_username')}

@@ -1,4 +1,55 @@
 {
+  "field_password_size" : {
+    "message": "Длина пароля"
+  },
+  "field_url" : {
+    "message": "Адрес"
+  },
+  "field_expiration" : {
+    "message": "Генерировать новый"
+  },
+  "field_expiration_never" : {
+    "message": "Никогда"
+  },
+  "field_expiration_hourly" : {
+    "message": "Каждый час"
+  },
+  "field_expiration_daily" : {
+    "message": "Каждый день"
+  },
+  "field_expiration_weekly" : {
+    "message": "Каждую неделю"
+  },
+  "field_expiration_monthly" : {
+    "message": "Каждый месяц"
+  },
+  "field_expiration_quarterly" : {
+    "message": "Каждый квартал"
+  },
+  "field_expiration_yearly" : {
+    "message": "Каждый год"
+  },
+  "field_username" : {
+    "message": "Логин"
+  },
+  "field_pin" : {
+    "message": "Мастер пароль"
+  },
+  "field_password" : {
+    "message": "Пароль"
+  },
+  "field_use_geo" : {
+    "message": "Геолокация"
+  },
+  "field_search_box" : {
+    "message": "Поиск"
+  },
+  "button_copy" : {
+    "message": "Копировать"
+  },
+  "button_copied" : {
+    "message": "Скопирован"
+  },
   "button_donate": {
     "message": "Пожертвовать"
   }
