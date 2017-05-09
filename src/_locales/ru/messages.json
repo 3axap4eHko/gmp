@@ -6,7 +6,7 @@
     "message": "Адрес"
   },
   "field_expiration" : {
-    "message": "Генерировать новый"
+    "message": "Изменять пароль"
   },
   "field_expiration_never" : {
     "message": "Никогда"

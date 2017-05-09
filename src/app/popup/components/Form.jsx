@@ -108,7 +108,7 @@ class Form extends Component {
 
   componentWillReceiveProps(nextProps) {
     const { url, username, pin, passwordLength, expiration, latitude, longitude, alphabet } = nextProps;
-    const timestamp = format(new Date(), '0YMDh'.substr(0, expiration));
+    const timestamp = format(new Date(), '0YQMNDh'.substr(0, expiration));
     const params = [url, username, pin, passwordLength, timestamp, latitude, longitude];
     const buffer = new TextEncoder('utf-8').encode(params.join(':'));
     crypto.subtle.digest('SHA-512', buffer).then(hashBuffer => {
@@ -155,7 +155,9 @@ class Form extends Component {
           <MenuItem value={1} primaryText={$i('field_expiration_never')} />
           <MenuItem value={2} primaryText={$i('field_expiration_hourly')} />
           <MenuItem value={3} primaryText={$i('field_expiration_daily')} />
+          <MenuItem value={3} primaryText={$i('field_expiration_weekly')} />
           <MenuItem value={4} primaryText={$i('field_expiration_monthly')} />
+          <MenuItem value={4} primaryText={$i('field_expiration_quarterly')} />
           <MenuItem value={5} primaryText={$i('field_expiration_yearly')} />
         </SelectField>
         <TextField

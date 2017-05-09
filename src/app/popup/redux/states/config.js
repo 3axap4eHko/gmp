@@ -4,5 +4,5 @@ export default {
   alphabet: '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
   autoClear: 15,
   passwordLength: 16,
-  expiration: 0,
+  expiration: 1,
 };

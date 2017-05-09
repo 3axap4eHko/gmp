@@ -6,28 +6,28 @@
     "message": "Url"
   },
   "field_expiration" : {
-    "message": "Expiration"
+    "message": "Change password"
   },
   "field_expiration_never" : {
     "message": "Never"
   },
   "field_expiration_hourly" : {
-    "message": "Hourly"
+    "message": "Every Hour"
   },
   "field_expiration_daily" : {
-    "message": "Daily"
+    "message": "Every Day"
   },
   "field_expiration_weekly" : {
-    "message": "Weekly"
+    "message": "Every Week"
   },
   "field_expiration_monthly" : {
-    "message": "Monthly"
+    "message": "Every Month"
   },
   "field_expiration_quarterly" : {
-    "message": "Quarterly"
+    "message": "Every Quarter"
   },
   "field_expiration_yearly" : {
-    "message": "Yearly"
+    "message": "Every Year"
   },
   "field_username" : {
     "message": "Username"
