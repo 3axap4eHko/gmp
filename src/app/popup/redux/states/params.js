@@ -2,6 +2,7 @@
 
 export default {
   url: '',
+  origin: '',
   username: '',
   pin: '',
   latitude: 0,

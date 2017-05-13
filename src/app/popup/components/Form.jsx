@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { number, string, func, bool } from 'prop-types';
 import { findDOMNode } from 'react-dom';
 import { connect } from 'react-redux';
-import { number, string } from 'prop-types';
 import styled from 'styled-components';
 import Subheader from 'material-ui/Subheader';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -10,9 +10,9 @@ import TextField from 'material-ui/TextField';
 import Toggle from 'material-ui/Toggle';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import { range } from 'yyf/iterate';
 import { format } from 'yyf/date';
 import { fromBytesToBits, toComplexArrayRight } from 'yyf/cast';
-
 import { Message, $i } from '../../commons/browser';
 
 import { paramsSet, configSet } from '../redux/actions';
@@ -55,8 +55,20 @@ function encodeBytes(bytes, alphabet) {
 
 class Form extends Component {
   static propTypes = {
-    length: number,
-    url: string,
+    passwordLength: number.isRequired,
+    url: string.isRequired,
+    origin: string.isRequired,
+    autoClear: number.isRequired,
+    expiration: number.isRequired,
+    username: string.isRequired,
+    pin: string.isRequired,
+    alphabet: string.isRequired,
+    latitude: number.isRequired,
+    longitude: number.isRequired,
+    useGeo: bool.isRequired,
+
+    configSet: func.isRequired,
+    paramsSet: func.isRequired,
   };
 
   state = {
@@ -77,6 +89,11 @@ class Form extends Component {
   onPinChange = (event, pin) => {
     const { paramsSet } = this.props;
     paramsSet({ pin });
+  };
+
+  onUrlChange = (event, index, url) => {
+    const { paramsSet } = this.props;
+    paramsSet({ url });
   };
 
   onExpirationChange = (event, index, expiration) => {
@@ -103,6 +120,7 @@ class Form extends Component {
       Message.send('clearClipboard', this.props.autoClear);
       setTimeout(() => window.close(), 1000);
     } catch (err) {
+      // ignore
     }
   };
 
@@ -115,19 +133,26 @@ class Form extends Component {
       const bytes = Array.from(new Uint8Array(hashBuffer));
       this.setState({ password: encodeBytes(bytes, alphabet).slice(-passwordLength) });
     });
-  };
+  }
 
   componentWillMount() {
     const { paramsSet } = this.props;
-    chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
-      const url = new URL(tab.url).origin;
-      paramsSet({ url })
+    chrome.tabs.query({ active: true, currentWindow: true }, ([tab] = []) => {
+      const origin = new URL(tab.url).origin;
+      paramsSet({ origin })
     });
   }
 
   render() {
-    const { url, username, pin, passwordLength, expiration, useGeo } = this.props;
+    const { url, origin, username, pin, passwordLength, expiration, useGeo } = this.props;
     const { copied, password } = this.state;
+
+    const urls = range(Math.max((origin.match(/\./g) || []).length, 0))
+      .map(idx => {
+        const uri = new URL(origin);
+        uri.hostname = uri.hostname.split('.').slice(-(idx + 2)).join('.');
+        return uri.origin;
+      });
 
     return (
       <Container>
@@ -140,12 +165,14 @@ class Form extends Component {
           style={styles.passwordSize}
           onChange={this.onLengthChange}
         />
-        <TextField
-          readOnly
+        <SelectField
           floatingLabelText={$i('field_url')}
-          value={url}
+          value={url || origin}
+          onChange={this.onUrlChange}
           fullWidth={true}
-        />
+        >
+          {urls.map(uri => <MenuItem key={uri} value={uri} primaryText={uri} />)}
+        </SelectField>
         <SelectField
           floatingLabelText={$i('field_expiration')}
           value={expiration}
@@ -192,8 +219,8 @@ class Form extends Component {
           <Toggle
             label="Use GEO"
             labelPosition="right"
-            style={{maxWidth: 120}}
-            labelStyle={{fontSize: 14}}
+            style={{ maxWidth: 120 }}
+            labelStyle={{ fontSize: 14 }}
             onToggle={this.onToggleGeo}
             toggled={useGeo}
           />

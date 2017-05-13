@@ -1,5 +1,5 @@
-const { lstatSync, writeFileSync, readFileSync } = require('fs');
-const { relative } = require('path');
+const { lstatSync, writeFileSync, readFileSync, mkdirSync } = require('fs');
+const { relative, dirname } = require('path');
 const Del = require('del');
 const Glob = require('glob');
 const JSZip = require('jszip');
@@ -27,6 +27,7 @@ WebpackPlugin.prototype.apply = function (compiler) {
           zip.file(relative(outputPath, filename), readFileSync(filename));
         }
       });
+      mkdirSync(dirname(pack));
       zip.generateAsync({ type: 'nodebuffer' })
         .then(content => writeFileSync(pack, content));
     }

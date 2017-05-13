@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
-import { number } from 'prop-types';
+import { number, func } from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
@@ -16,6 +16,7 @@ const Container = styled.section`
 
 class Map extends Component {
   static propTypes = {
+    paramsSet: func.isRequired,
     latitude: number,
     longitude: number,
   };
@@ -46,7 +47,6 @@ class Map extends Component {
   }
 
   render() {
-    const {} = this.props;
     return (
       <Container ref={map => this.map = map} />
     );

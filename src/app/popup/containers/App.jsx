@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { object } from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import If from 'react-helpful/If';
@@ -33,7 +34,9 @@ const Generator = styled.section`
 `;
 
 class App extends Component {
-  static propTypes = {};
+  static propTypes = {
+    useGeo: object.isRequired,
+  };
 
   render() {
     const { useGeo } = this.props;
