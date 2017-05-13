@@ -1,6 +1,6 @@
 {
   "name": "gmp",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "Generate Me Password chrome extension",
   "main": "index.js",
   "scripts": {
